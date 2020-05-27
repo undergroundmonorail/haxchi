@@ -8,5 +8,6 @@
 #define LAUNCH_CFW_IMG 3
 #define LAUNCH_VWII_SYSMENU 4
 #define LAUNCH_VWII_HBC 5
+#define LAUNCH_VWII_CTGP 6
 
 #endif
