@@ -1,3 +1,7 @@
+# NOTE FOR THIS FORK
+
+Even more than usual, I accept *no* responsibility if this bricks your console! You really shouldn't use this! In fact, it's pretty irresponsible for me to be attempting to fork it in the first place! CBHC is already dangerous, and while there are ways to greatly mitigate the risk, you *really shouldn't be using a fork by someone who only vaguely knows what they're doing*.
+
 # Haxchi
 
 This is the continuation of the POC Haxchi exploit by smea.  
