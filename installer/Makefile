@@ -9,10 +9,10 @@ endif
 ifeq ($(strip $(DEVKITPRO)),)
 $(error "Please set DEVKITPRO in your environment. export DEVKITPRO=<path to>devkitPRO")
 endif
+export PORTLIBS		:=	$(DEVKITPRO)/portlibs/wiiu
 export PATH			:=	$(DEVKITPPC)/bin:$(PORTLIBS)/bin:$(PATH)
 export LIBOGC_INC	:=	$(DEVKITPRO)/libogc/include
-export LIBOGC_LIB	:=	$(DEVKITPRO)/libogc/lib/wii
-export PORTLIBS		:=	$(DEVKITPRO)/portlibs/ppc
+export LIBOGC_LIB	:=	$(DEVKITPRO)/libogc/lib/wiiu
 
 PREFIX	:=	powerpc-eabi-
 
@@ -65,7 +65,7 @@ MAKEFLAGS += --no-print-directory
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:= -liosuhax -lxml2 -lm
+LIBS	:= -lxml2 -liosuhax -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing

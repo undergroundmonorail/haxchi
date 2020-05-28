@@ -1,7 +1,7 @@
 @echo off
 
 cd installer
-mkdir data 2>/nul
+mkdir data 2>/dev/null
 cd ../dsrom
 echo.
 echo Building DS ROMs

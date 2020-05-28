@@ -6,11 +6,12 @@ CFLAGS = -std=gnu99 -O3 -nostdinc -fno-builtin
 ASFLAGS = -mregnames -x assembler-with-cpp
 LD = $(PREFIX)ld
 OBJCOPY = $(PREFIX)objcopy
-LDFLAGS=-Ttext 1800000 -L$(DEVKITPPC)/lib/gcc/powerpc-eabi/6.2.0 -lgcc
+LDFLAGS=-Ttext 1800000 -L$(DEVKITPPC)/lib/gcc/powerpc-eabi/8.4.0 -lgcc
 OBJDUMP ?= $(PREFIX)objdump
 project	:=	.
 root	:=	$(CURDIR)
 build	:=	 $(root)/bin
+LIBDIRS	:= $(DEVKITPRO)/libogc $(DEVKITPRO)/portlibs/wiiu
 
 sd_loader_elf := sd_loader/sd_loader.elf
 

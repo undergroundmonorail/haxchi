@@ -25,7 +25,7 @@ static unsigned int getButtonsDown(unsigned int padscore_handle, unsigned int vp
 #define SD_HBL_PATH "/vol/external01/wiiu/apps/homebrew_launcher/homebrew_launcher.elf"
 #define SD_MOCHA_PATH "/vol/external01/wiiu/apps/mocha/mocha.elf"
 
-static const char *verChar = "CBHC v1.7 by monorail";
+static const char *verChar = "CBHC 20XX Tournament Edition";
 static const unsigned long long VWII_SYSMENU_TID = 0x0000000100000002ULL;
 static const unsigned long long VWII_HBC_TID = 0x000100014C554C5AULL;
 static const unsigned long long VWII_CTGP_TID = 0x00010001524D4358AULL;
