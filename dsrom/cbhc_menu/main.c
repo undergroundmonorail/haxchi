@@ -27,7 +27,7 @@ static unsigned int getButtonsDown(unsigned int padscore_handle, unsigned int vp
 
 static const char *verChar = "CBHC 20XX Tournament Edition";
 static const unsigned long long VWII_SYSMENU_TID = 0x0000000100000002ULL;
-static const unsigned long long VWII_CTGP_TID = 0x000100014C554C5AULL;
+static const unsigned long long VWII_CTGP_TID = 0x00010001524D4358AULL;
 
 #define DEFAULT_DISABLED 0
 #define DEFAULT_SYSMENU 1
