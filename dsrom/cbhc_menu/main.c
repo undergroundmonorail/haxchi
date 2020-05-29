@@ -25,10 +25,9 @@ static unsigned int getButtonsDown(unsigned int padscore_handle, unsigned int vp
 #define SD_HBL_PATH "/vol/external01/wiiu/apps/homebrew_launcher/homebrew_launcher.elf"
 #define SD_MOCHA_PATH "/vol/external01/wiiu/apps/mocha/mocha.elf"
 
-static const char *verChar = "CBHC 20XX Tournament Edition";
+static const char *verChar = "CBHC v1.6 by FIX94";
 static const unsigned long long VWII_SYSMENU_TID = 0x0000000100000002ULL;
 static const unsigned long long VWII_HBC_TID = 0x000100014C554C5AULL;
-static const unsigned long long VWII_CTGP_TID = 0x00010001524D4358AULL;
 
 #define DEFAULT_DISABLED 0
 #define DEFAULT_SYSMENU 1
@@ -37,8 +36,7 @@ static const unsigned long long VWII_CTGP_TID = 0x00010001524D4358AULL;
 #define DEFAULT_CFW_IMG 4
 #define DEFAULT_VWII_SYSMENU 5
 #define DEFAULT_VWII_HBC 6
-#define DEFAULT_VWII_CTGP 7
-#define DEFAULT_MAX 8
+#define DEFAULT_MAX 7
 
 static const char *defOpts[DEFAULT_MAX] = {
 	"DEFAULT_DISABLED",
@@ -48,7 +46,6 @@ static const char *defOpts[DEFAULT_MAX] = {
 	"DEFAULT_CFW_IMG",
 	"DEFAULT_VWII_SYSMENU",
 	"DEFAULT_VWII_HBC",
-	"DEFAULT_VWII_CTGP",
 };
 
 static const char *bootOpts[DEFAULT_MAX] = {
@@ -59,7 +56,6 @@ static const char *bootOpts[DEFAULT_MAX] = {
 	"fw.img on SD Card",
 	"vWii System Menu",
 	"vWii Homebrew Channel",
-	"CTGP Revolution",
 };
 
 #define OSScreenEnable(enable) OSScreenEnableEx(0, enable); OSScreenEnableEx(1, enable);
@@ -341,7 +337,7 @@ uint32_t __main(void)
 cbhc_menu:	;
 	int redraw = 1;
 	int PosX = 0;
-	int ListMax = DEFAULT_MAX;
+	int ListMax = 7;
 	int clickT = 0;
 	while(1)
 	{
@@ -385,7 +381,7 @@ cbhc_menu:	;
 
 		if( btnDown & VPAD_BUTTON_A )
 		{
-			if(PosX == DEFAULT_MAX-1)
+			if(PosX == 6)
 			{
 				cur_autoboot++;
 				if(cur_autoboot == DEFAULT_MAX)
@@ -416,10 +412,8 @@ cbhc_menu:	;
 			OSScreenPutFont(0, 5, printStr);
 			__os_snprintf(printStr,64,"%c Boot vWii Homebrew Channel", 5 == PosX ? '>' : ' ');
 			OSScreenPutFont(0, 6, printStr);
-			__os_snprintf(printStr,64,"%c Boot vWii CTGP Revolution", 6 == PosX ? '>' : ' ');
+			__os_snprintf(printStr,64,"%c Autoboot: %s", 6 == PosX ? '>' : ' ', bootOpts[cur_autoboot]);
 			OSScreenPutFont(0, 7, printStr);
-			__os_snprintf(printStr,64,"%c Autoboot: %s", 7 == PosX ? '>' : ' ', bootOpts[cur_autoboot]);
-			OSScreenPutFont(0, 8, printStr);
 
 			OSScreenFlipBuffers();
 			redraw = 0;
@@ -482,12 +476,6 @@ do_launch_selection: ;
 	{
 		// vwii system menu bootup
 		memcpy((void*)0xF5E70000, &VWII_HBC_TID, 8);
-		return 0x0180C000;
-	}
-	else if(launchmode == LAUNCH_VWII_CTGP)
-	{
-		// vwii CTGP-R channel
-		memcpy((void*)0xF5E70000, &VWII_CTGP_TID, 8);
 		return 0x0180C000;
 	}
 
