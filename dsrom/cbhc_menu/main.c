@@ -410,7 +410,7 @@ cbhc_menu:	;
 			OSScreenPutFont(0, 4, printStr);
 			__os_snprintf(printStr,64,"%c Boot vWii System Menu", 4 == PosX ? '>' : ' ');
 			OSScreenPutFont(0, 5, printStr);
-			__os_snprintf(printStr,64,"%c Boot vWii Homebrew Channel", 5 == PosX ? '>' : ' ');
+			__os_snprintf(printStr,64,"%c Boot vWii CTGP Revolution", 5 == PosX ? '>' : ' ');
 			OSScreenPutFont(0, 6, printStr);
 			__os_snprintf(printStr,64,"%c Autoboot: %s", 6 == PosX ? '>' : ' ', bootOpts[cur_autoboot]);
 			OSScreenPutFont(0, 7, printStr);
