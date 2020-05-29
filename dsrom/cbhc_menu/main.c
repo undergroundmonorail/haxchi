@@ -27,7 +27,7 @@ static unsigned int getButtonsDown(unsigned int padscore_handle, unsigned int vp
 
 static const char *verChar = "CBHC v1.6 by FIX94";
 static const unsigned long long VWII_SYSMENU_TID = 0x0000000100000002ULL;
-static const unsigned long long VWII_HBC_TID = 0x000100014C554C5AULL;
+static const unsigned long long VWII_CTGP_TID = 0x000100014C554C5AULL;
 
 #define DEFAULT_DISABLED 0
 #define DEFAULT_SYSMENU 1
@@ -35,7 +35,7 @@ static const unsigned long long VWII_HBC_TID = 0x000100014C554C5AULL;
 #define DEFAULT_MOCHA 3
 #define DEFAULT_CFW_IMG 4
 #define DEFAULT_VWII_SYSMENU 5
-#define DEFAULT_VWII_HBC 6
+#define DEFAULT_VWII_CTGP 6
 #define DEFAULT_MAX 7
 
 static const char *defOpts[DEFAULT_MAX] = {
@@ -45,7 +45,7 @@ static const char *defOpts[DEFAULT_MAX] = {
 	"DEFAULT_MOCHA",
 	"DEFAULT_CFW_IMG",
 	"DEFAULT_VWII_SYSMENU",
-	"DEFAULT_VWII_HBC",
+	"DEFAULT_VWII_CTGP",
 };
 
 static const char *bootOpts[DEFAULT_MAX] = {
@@ -55,7 +55,7 @@ static const char *bootOpts[DEFAULT_MAX] = {
 	"Mocha CFW",
 	"fw.img on SD Card",
 	"vWii System Menu",
-	"vWii Homebrew Channel",
+	"vWii CTGP Revolution",
 };
 
 #define OSScreenEnable(enable) OSScreenEnableEx(0, enable); OSScreenEnableEx(1, enable);
@@ -472,10 +472,10 @@ do_launch_selection: ;
 		memcpy((void*)0xF5E70000, &VWII_SYSMENU_TID, 8);
 		return 0x0180C000;
 	}
-	else if(launchmode == LAUNCH_VWII_HBC)
+	else if(launchmode == LAUNCH_VWII_CTGP)
 	{
 		// vwii system menu bootup
-		memcpy((void*)0xF5E70000, &VWII_HBC_TID, 8);
+		memcpy((void*)0xF5E70000, &VWII_CTGP_TID, 8);
 		return 0x0180C000;
 	}
 
